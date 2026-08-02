@@ -20,7 +20,7 @@ sap.ui.define([
                 "model/products.json"
             );
 
-            this.setModel(oModel);
+            this.setModel(oModel,"ProductModel");
 
             this.getRouter().initialize();
 
