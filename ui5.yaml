@@ -2,3 +2,11 @@ specVersion: "4.0"
 metadata:
   name: inventory-portal
 type: application
+framework:
+  name: SAPUI5
+  version: "1.120.0"
+  libraries:
+    - name: sap.m
+    - name: sap.f
+    - name: sap.ui.layout
+    - name: sap.ui.core
