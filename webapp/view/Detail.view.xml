@@ -1,32 +1,38 @@
 <mvc:View
     controllerName="inventoryportal.controller.Detail"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form">
 
     <Page
         title="{i18n>productDetails}"
+        busy="{view>/busy}"
+        busyIndicatorDelay="0"
         showNavButton="true"
         navButtonPress=".onNavBack">
 
         <headerContent>
-
             <Button
                 icon="sap-icon://edit"
                 text="{i18n>edit}"
-                press=".onEdit"/>
+                press=".onEdit" />
+
+            <Button
+                icon="sap-icon://shipping-status"
+                text="{i18n>reorder}"
+                press=".onReorder" />
 
             <Button
                 icon="sap-icon://delete"
                 text="{i18n>delete}"
                 type="Reject"
-                press=".onDelete"/>
-
+                press=".onDelete" />
         </headerContent>
 
         <content>
-
             <ObjectHeader
                 title="{products>name}"
+                icon="{products>imageUrl}"
                 number="{
                     parts: [
                         'products>price',
@@ -36,9 +42,7 @@
                 }">
 
                 <firstStatus>
-
                     <ObjectStatus
-
                         text="{
                             parts: [
                                 'products>stock',
@@ -46,41 +50,61 @@
                             ],
                             formatter: '.formatter.getStockStatus'
                         }"
-
                         state="{
                             parts: [
                                 'products>stock',
                                 'products>reorderThreshold'
                             ],
-                            formatter: '.formatter.getStatusState'
-                        }"/>
-
+                            formatter: '.formatter.getStockState'
+                        }"
+                        icon="{
+                            parts: [
+                                'products>stock',
+                                'products>reorderThreshold'
+                            ],
+                            formatter: '.formatter.getStockIcon'
+                        }" />
                 </firstStatus>
 
+                <attributes>
+                    <ObjectAttribute
+                        title="{i18n>category}"
+                        text="{products>category}" />
+                    <ObjectAttribute
+                        title="{i18n>sku}"
+                        text="{products>sku}" />
+                </attributes>
             </ObjectHeader>
 
+            <form:SimpleForm
+                editable="false"
+                layout="ResponsiveGridLayout"
+                title="{i18n>productInformation}"
+                class="sapUiResponsiveMargin">
 
-            <ObjectListItem
-                title="{i18n>category}"
-                intro="{products>category}"/>
+                <Label text="{i18n>description}" />
+                <Text text="{products>description}" />
 
+                <Label text="{i18n>supplier}" />
+                <Text text="{products>supplier}" />
 
-            <ObjectListItem
-                title="{i18n>stock}"
-                intro="{products>stock}"/>
+                <Label text="{i18n>warehouse}" />
+                <Text text="{products>warehouse}" />
 
+                <Label text="{i18n>stock}" />
+                <Text text="{products>stock}" />
 
-            <ObjectListItem
-                title="{i18n>reorderThreshold}"
-                intro="{products>reorderThreshold}"/>
+                <Label text="{i18n>reorderThreshold}" />
+                <Text text="{products>reorderThreshold}" />
 
-
-            <ObjectListItem
-                title="{i18n>currency}"
-                intro="{products>currency}"/>
-
+                <Label text="{i18n>lastUpdated}" />
+                <Text
+                    text="{
+                        path: 'products>lastUpdated',
+                        formatter: '.formatter.formatDate'
+                    }" />
+            </form:SimpleForm>
         </content>
-
     </Page>
 
 </mvc:View>

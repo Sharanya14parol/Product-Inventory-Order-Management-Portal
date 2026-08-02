@@ -76,7 +76,20 @@
                         <firstStatus>
                             <ObjectStatus
                                 text="{products>stock}"
-                                state="Success"
+                                state="{
+            parts: [
+                'products>stock',
+                'products>reorderThreshold'
+            ],
+            formatter: '.formatter.getStockState'
+        }"
+                                icon="{
+            parts: [
+                'products>stock',
+                'products>reorderThreshold'
+            ],
+            formatter: '.formatter.getStockIcon'
+        }"
                             />
                         </firstStatus>
                     </ObjectListItem>
