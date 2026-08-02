@@ -1,0 +1,155 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <Dialog
+        id="addEditProductDialog"
+        title="{view>/dialogTitle}"
+        contentWidth="32rem"
+        draggable="true"
+        resizable="true">
+
+        <content>
+            <VBox class="sapUiMediumMargin">
+
+                <Label
+                    text="{i18n>productName}"
+                    required="true" />
+                <Input
+                    id="productNameInput"
+                    value="{view>/product/name}"
+                    valueLiveUpdate="true"
+                    placeholder="{i18n>enterProductName}"
+                    valueState="{view>/nameState}"
+                    valueStateText="{view>/nameStateText}" />
+
+                <Label
+                    text="{i18n>category}"
+                    required="true"
+                    class="sapUiSmallMarginTop" />
+                <Input
+                    id="categoryInput"
+                    value="{view>/product/category}"
+                    valueLiveUpdate="true"
+                    placeholder="{i18n>enterCategory}"
+                    valueState="{view>/categoryState}"
+                    valueStateText="{view>/categoryStateText}" />
+
+                <Label
+                    text="{i18n>sku}"
+                    class="sapUiSmallMarginTop" />
+                <Input
+                    id="skuInput"
+                    value="{view>/product/sku}"
+                    valueLiveUpdate="true"
+                    placeholder="{i18n>enterSku}"
+                    valueState="{view>/skuState}"
+                    valueStateText="{view>/skuStateText}" />
+
+                <Label
+                    text="{i18n>price}"
+                    required="true"
+                    class="sapUiSmallMarginTop" />
+                <Input
+                    id="priceInput"
+                    value="{view>/product/price}"
+                    valueLiveUpdate="true"
+                    type="Number"
+                    placeholder="{i18n>enterPrice}"
+                    valueState="{view>/priceState}"
+                    valueStateText="{view>/priceStateText}" />
+
+                <Label
+                    text="{i18n>currency}"
+                    required="true"
+                    class="sapUiSmallMarginTop" />
+                <Input
+                    id="currencyInput"
+                    value="{view>/product/currency}"
+                    valueLiveUpdate="true"
+                    placeholder="{i18n>enterCurrency}"
+                    maxLength="3"
+                    valueState="{view>/currencyState}"
+                    valueStateText="{view>/currencyStateText}" />
+
+                <Label
+                    text="{i18n>stock}"
+                    required="true"
+                    class="sapUiSmallMarginTop" />
+                <Input
+                    id="stockInput"
+                    value="{view>/product/stock}"
+                    valueLiveUpdate="true"
+                    type="Number"
+                    placeholder="{i18n>enterStock}"
+                    valueState="{view>/stockState}"
+                    valueStateText="{view>/stockStateText}" />
+
+                <Label
+                    text="{i18n>reorderThreshold}"
+                    required="true"
+                    class="sapUiSmallMarginTop" />
+                <Input
+                    id="thresholdInput"
+                    value="{view>/product/reorderThreshold}"
+                    valueLiveUpdate="true"
+                    type="Number"
+                    placeholder="{i18n>enterReorderThreshold}"
+                    valueState="{view>/thresholdState}"
+                    valueStateText="{view>/thresholdStateText}" />
+
+                <Label
+                    text="{i18n>supplier}"
+                    class="sapUiSmallMarginTop" />
+                <Input
+                    id="supplierInput"
+                    value="{view>/product/supplier}"
+                    valueLiveUpdate="true"
+                    placeholder="{i18n>enterSupplier}" />
+
+                <Label
+                    text="{i18n>warehouse}"
+                    class="sapUiSmallMarginTop" />
+                <Input
+                    id="warehouseInput"
+                    value="{view>/product/warehouse}"
+                    valueLiveUpdate="true"
+                    placeholder="{i18n>enterWarehouse}" />
+
+                <Label
+                    text="{i18n>description}"
+                    class="sapUiSmallMarginTop" />
+                <TextArea
+                    id="descriptionInput"
+                    value="{view>/product/description}"
+                    valueLiveUpdate="true"
+                    placeholder="{i18n>enterDescription}"
+                    rows="3" />
+
+                <Label
+                    text="{i18n>imageUrl}"
+                    class="sapUiSmallMarginTop" />
+                <Input
+                    id="imageUrlInput"
+                    value="{view>/product/imageUrl}"
+                    valueLiveUpdate="true"
+                    placeholder="{i18n>enterImageUrl}" />
+
+            </VBox>
+        </content>
+
+        <beginButton>
+            <Button
+                text="{i18n>save}"
+                type="Emphasized"
+                press=".onSaveProduct" />
+        </beginButton>
+
+        <endButton>
+            <Button
+                text="{i18n>cancel}"
+                press=".onCancelProduct" />
+        </endButton>
+    </Dialog>
+
+</core:FragmentDefinition>

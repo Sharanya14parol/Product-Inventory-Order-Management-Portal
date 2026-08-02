@@ -1,78 +1,106 @@
 sap.ui.define([
-    "sap/ui/core/format/NumberFormat",
-    "sap/ui/core/format/DateFormat"
-], function (NumberFormat, DateFormat) {
+    "sap/ui/model/type/Currency"
+], function (Currency) {
 
     "use strict";
 
-    var oResourceBundle;
-
     return {
 
-        setResourceBundle: function (oBundle) {
-            oResourceBundle = oBundle;
-        },
-
         formatCurrency: function (fPrice, sCurrency) {
-            if (fPrice === undefined || fPrice === null || fPrice === "" || !sCurrency) {
+
+            if (
+                fPrice === undefined ||
+                fPrice === null ||
+                fPrice === ""
+            ) {
                 return "";
             }
 
-            return NumberFormat.getCurrencyInstance({
-                currencyCode: true
-            }).format(Number(fPrice), sCurrency);
+            var oCurrency = new Currency({
+                showMeasure: true
+            });
+
+            return oCurrency.formatValue(
+                [
+                    Number(fPrice).toFixed(2),
+                    sCurrency || "USD"
+                ],
+                "string"
+            );
         },
 
         getStockStatus: function (iStock, iThreshold) {
-            if (!oResourceBundle) {
-                return "";
+
+            if (
+                iStock === undefined ||
+                iStock === null ||
+                iStock === ""
+            ) {
+                return "Unknown";
             }
 
-            if (Number(iStock) === 0) {
-                return oResourceBundle.getText("statusOutOfStock");
+            iStock = Number(iStock);
+            iThreshold = Number(iThreshold);
+
+            if (iStock === 0) {
+                return "Out of Stock";
             }
 
-            if (Number(iStock) <= Number(iThreshold)) {
-                return oResourceBundle.getText("statusLowStock");
+            if (iStock <= iThreshold) {
+                return "Low Stock";
             }
 
-            return oResourceBundle.getText("statusAvailable");
+            return "Available";
         },
 
+
         getStockState: function (iStock, iThreshold) {
-            if (Number(iStock) === 0) {
+
+            console.log(
+                "STOCK STATE:",
+                iStock,
+                iThreshold
+            );
+
+            iStock = Number(iStock);
+            iThreshold = Number(iThreshold);
+
+            if (iStock === 0) {
                 return "Error";
             }
 
-            if (Number(iStock) <= Number(iThreshold)) {
+            if (iStock <= iThreshold) {
                 return "Warning";
             }
 
             return "Success";
         },
-
+        formatProductCount: function (sLabel, iCount) {
+            return sLabel + " (" + iCount + ")";
+        },
         getStockIcon: function (iStock, iThreshold) {
-            if (Number(iStock) === 0) {
+
+            console.log(
+                "STOCK ICON:",
+                iStock,
+                iThreshold
+            );
+
+            iStock = Number(iStock);
+            iThreshold = Number(iThreshold);
+
+            if (iStock === 0) {
                 return "sap-icon://error";
             }
 
-            if (Number(iStock) <= Number(iThreshold)) {
+            if (iStock <= iThreshold) {
                 return "sap-icon://alert";
             }
 
             return "sap-icon://accept";
         },
 
-        formatDate: function (sDate) {
-            if (!sDate) {
-                return "";
-            }
-
-            return DateFormat.getDateInstance({
-                style: "medium"
-            }).format(new Date(sDate));
-        }
-
     };
 
 });
+

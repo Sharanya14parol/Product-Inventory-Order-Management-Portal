@@ -1,0 +1,10 @@
+<mvc:View
+    controllerName="inventoryportal.controller.App"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.f">
+
+    <f:FlexibleColumnLayout
+            id="fcl"
+            layout="OneColumn"/>
+
+</mvc:View>

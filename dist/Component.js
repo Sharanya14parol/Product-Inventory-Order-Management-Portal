@@ -1,0 +1,2 @@
+sap.ui.define(["sap/ui/core/UIComponent","sap/ui/model/json/JSONModel"],function(t,e){"use strict";return t.extend("inventoryportal.Component",{metadata:{interfaces:["sap.ui.core.IAsyncContentCreation"],manifest:"json"},init:function(){t.prototype.init.apply(this,arguments);var n=new e("model/products.json");this.setModel(n,"ProductModel");this.getRouter().initialize()}})});
+//# sourceMappingURL=Component.js.map

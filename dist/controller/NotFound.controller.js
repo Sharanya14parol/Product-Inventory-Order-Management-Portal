@@ -1,0 +1,2 @@
+sap.ui.define(["./BaseController"],function(t){"use strict";return t.extend("inventoryportal.controller.NotFound",{onNavBack:function(){this.getRouter().navTo("list")}})});
+//# sourceMappingURL=NotFound.controller.js.map
