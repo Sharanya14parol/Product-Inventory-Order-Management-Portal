@@ -1,5 +1,5 @@
 sap.ui.define([
-"inventoryportal/controller/BaseController"
+    "inventoryportal/controller/BaseController"
 ], function (BaseController) {
 
     "use strict";
