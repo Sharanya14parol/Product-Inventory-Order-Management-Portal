@@ -4,9 +4,12 @@
   "description": "SAPUI5 Product Inventory and Order Management Portal",
   "private": true,
   "scripts": {
-    "start": "ui5 serve -o index.html"
+    "start": "ui5 serve -o index.html",
+    "lint": "eslint webapp"
   },
   "devDependencies": {
-    "@ui5/cli": "^4.0.0"
+    "@eslint/js": "^10.0.1",
+    "@ui5/cli": "^4.0.0",
+    "eslint": "^10.8.0"
   }
 }
