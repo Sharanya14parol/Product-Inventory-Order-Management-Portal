@@ -1,55 +1,76 @@
-sap.ui.define([], function () {
+sap.ui.define([
+    "sap/ui/core/format/NumberFormat",
+    "sap/ui/core/format/DateFormat"
+], function (NumberFormat, DateFormat) {
 
     "use strict";
 
+    var oResourceBundle;
+
     return {
 
-        formatCurrency: function (price, currency) {
+        setResourceBundle: function (oBundle) {
+            oResourceBundle = oBundle;
+        },
 
-            if (price === undefined) {
+        formatCurrency: function (fPrice, sCurrency) {
+            if (fPrice === undefined || fPrice === null || fPrice === "" || !sCurrency) {
                 return "";
             }
 
-            return Number(price).toFixed(2) + " " + currency;
-
+            return NumberFormat.getCurrencyInstance({
+                currencyCode: true
+            }).format(Number(fPrice), sCurrency);
         },
 
-        getStockStatus: function (stock, threshold) {
-
-            if (stock === 0) {
-                return "Out of Stock";
+        getStockStatus: function (iStock, iThreshold) {
+            if (!oResourceBundle) {
+                return "";
             }
 
-            if (stock <= threshold) {
-                return "Low Stock";
+            if (Number(iStock) === 0) {
+                return oResourceBundle.getText("statusOutOfStock");
             }
 
-            return "Available";
+            if (Number(iStock) <= Number(iThreshold)) {
+                return oResourceBundle.getText("statusLowStock");
+            }
 
+            return oResourceBundle.getText("statusAvailable");
         },
 
-        getStatusState: function (stock, threshold) {
-
-            if (stock === 0) {
+        getStockState: function (iStock, iThreshold) {
+            if (Number(iStock) === 0) {
                 return "Error";
             }
 
-            if (stock <= threshold) {
+            if (Number(iStock) <= Number(iThreshold)) {
                 return "Warning";
             }
 
             return "Success";
-
         },
 
-        formatDate: function (date) {
+        getStockIcon: function (iStock, iThreshold) {
+            if (Number(iStock) === 0) {
+                return "sap-icon://error";
+            }
 
-            if (!date) {
+            if (Number(iStock) <= Number(iThreshold)) {
+                return "sap-icon://alert";
+            }
+
+            return "sap-icon://accept";
+        },
+
+        formatDate: function (sDate) {
+            if (!sDate) {
                 return "";
             }
 
-            return new Date(date).toLocaleDateString();
-
+            return DateFormat.getDateInstance({
+                style: "medium"
+            }).format(new Date(sDate));
         }
 
     };
