@@ -17,15 +17,17 @@ sap.ui.define([
             UIComponent.prototype.init.apply(this, arguments);
 
             var oModel = new JSONModel(
-                "model/products.json"
+                sap.ui.require.toUrl(
+                    "inventoryportal/model/products.json"
+                )
             );
 
-            this.setModel(oModel,"ProductModel");
+            this.setModel(oModel, "products");
 
             this.getRouter().initialize();
-
         }
 
     });
 
 });
+
