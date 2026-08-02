@@ -3,93 +3,85 @@ sap.ui.define([
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
     "../model/formatter"
-], function (
-    BaseController,
-    Filter,
-    FilterOperator,
-    formatter
-) {
+], function (BaseController,Filter,FilterOperator,formatter) {
 
-"use strict";
+    "use strict";
 
-return BaseController.extend(
-"inventoryportal.controller.List",
+    return BaseController.extend(
+        "inventoryportal.controller.List",
 
-{
+        {
 
-formatter: formatter,
+            formatter: formatter,
+            onInit: function () {},
 
-onInit:function(){
+            onItemPress: function (oEvent) {
 
-},
+                var oItem = oEvent.getSource();
 
-onItemPress:function(oEvent){
+                var sProductId = oItem.getBindingContext("products")
+                    .getProperty("productId");
 
-var oItem = oEvent.getSource();
+                this.getRouter().navTo("detail", {
 
-var sProductId = oItem.getBindingContext("products")
-.getProperty("productId");
+                    productId: sProductId
 
-this.getRouter().navTo("detail",{
+                });
 
-productId:sProductId
+            },
 
-});
+            onSearch: function (oEvent) {
 
-},
+                var sValue = oEvent.getParameter("newValue");
 
-onSearch:function(oEvent){
+                var oFilter = new Filter({
 
-var sValue = oEvent.getParameter("newValue");
+                    filters: [
 
-var oFilter = new Filter({
+                        new Filter("name",
+                            FilterOperator.Contains,
+                            sValue),
 
-filters:[
+                        new Filter("category",
+                            FilterOperator.Contains,
+                            sValue)
 
-new Filter("name",
-FilterOperator.Contains,
-sValue),
+                    ],
 
-new Filter("category",
-FilterOperator.Contains,
-sValue)
+                    and: false
 
-],
+                });
 
-and:false
+                this.byId("productList")
+                    .getBinding("items")
+                    .filter(oFilter);
 
-});
+            },
 
-this.byId("productList")
-.getBinding("items")
-.filter(oFilter);
+            onAddProduct: function () {
 
-},
+                sap.m.MessageToast.show(
+                    "Open Add Product Dialog"
+                );
 
-onAddProduct:function(){
+            },
 
-sap.m.MessageToast.show(
-"Open Add Product Dialog"
-);
+            onOpenSort: function () {
 
-},
+                sap.m.MessageToast.show(
+                    "Sort Fragment"
+                );
 
-onOpenSort:function(){
+            },
 
-sap.m.MessageToast.show(
-"Sort Fragment"
-);
+            onOpenFilter: function () {
 
-},
+                sap.m.MessageToast.show(
+                    "Filter Fragment"
+                );
 
-onOpenFilter:function(){
+            }
 
-sap.m.MessageToast.show(
-"Filter Fragment"
-);
-
-}
-
-});
+        });
 
 });

@@ -22,7 +22,7 @@
             id="productList"
 
             items="{
-                path:'products>/products'
+                path:'ProductModel>/products'
             }"
 
             mode="SingleSelectMaster"
@@ -36,7 +36,7 @@
                 <OverflowToolbar>
 
                     <Title
-                        text="{= 'Products (' + ${products>/products}.length + ')' }"/>
+                        text="{= 'Products (' + ${ProductModel>/products}.length + ')' }"/>
 
                     <ToolbarSpacer/>
 
