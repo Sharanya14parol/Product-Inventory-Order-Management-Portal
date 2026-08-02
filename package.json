@@ -1,13 +1,12 @@
 {
   "name": "inventory-portal",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "SAPUI5 Product Inventory and Order Management Portal",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "ui5 serve -o index.html"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs"
+  "devDependencies": {
+    "@ui5/cli": "^4.0.0"
+  }
 }
