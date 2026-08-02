@@ -9,7 +9,9 @@ sap.ui.define([
         getRouter: function () {
             return this.getOwnerComponent().getRouter();
         },
-
+        getModel: function (sName) {
+            return this.getOwnerComponent().getModel(sName);
+        },
         getResourceBundle: function () {
             return this.getOwnerComponent()
                 .getModel("i18n")

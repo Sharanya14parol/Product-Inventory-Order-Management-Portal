@@ -1,20 +1,14 @@
 sap.ui.define([
-    "./BaseController"
+"inventoryportal/controller/BaseController"
 ], function (BaseController) {
 
     "use strict";
 
     return BaseController.extend(
         "inventoryportal.controller.App",
-
         {
-
             onInit: function () {
-
             }
-
         }
-
     );
-
 });
