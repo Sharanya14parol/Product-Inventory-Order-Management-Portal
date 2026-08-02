@@ -1,0 +1,126 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <Dialog
+        id="addEditProductDialog"
+        title="{view>/dialogTitle}"
+        contentWidth="30rem"
+        draggable="true"
+        resizable="true">
+
+        <content>
+
+            <VBox
+                class="sapUiMediumMargin">
+
+                <!-- Product Name -->
+                <Label
+                    text="{i18n>productName}"
+                    required="true"/>
+
+                <Input
+                    id="productNameInput"
+                    value="{view>/product/name}"
+                    placeholder="{i18n>enterProductName}"
+                    valueState="{view>/nameState}"
+                    valueStateText="{view>/nameStateText}"/>
+
+
+                <!-- Category -->
+                <Label
+                    text="{i18n>category}"
+                    required="true"
+                    class="sapUiSmallMarginTop"/>
+
+                <Input
+                    id="categoryInput"
+                    value="{view>/product/category}"
+                    placeholder="{i18n>enterCategory}"
+                    valueState="{view>/categoryState}"
+                    valueStateText="{view>/categoryStateText}"/>
+
+
+                <!-- Price -->
+                <Label
+                    text="{i18n>price}"
+                    required="true"
+                    class="sapUiSmallMarginTop"/>
+
+                <Input
+                    id="priceInput"
+                    value="{view>/product/price}"
+                    type="Number"
+                    placeholder="{i18n>enterPrice}"
+                    valueState="{view>/priceState}"
+                    valueStateText="{view>/priceStateText}"/>
+
+
+                <!-- Currency -->
+                <Label
+                    text="{i18n>currency}"
+                    required="true"
+                    class="sapUiSmallMarginTop"/>
+
+                <Input
+                    id="currencyInput"
+                    value="{view>/product/currency}"
+                    placeholder="USD"
+                    maxLength="3"
+                    valueState="{view>/currencyState}"
+                    valueStateText="{view>/currencyStateText}"/>
+
+
+                <!-- Stock -->
+                <Label
+                    text="{i18n>stock}"
+                    required="true"
+                    class="sapUiSmallMarginTop"/>
+
+                <Input
+                    id="stockInput"
+                    value="{view>/product/stock}"
+                    type="Number"
+                    placeholder="{i18n>enterStock}"
+                    valueState="{view>/stockState}"
+                    valueStateText="{view>/stockStateText}"/>
+
+
+                <!-- Reorder Threshold -->
+                <Label
+                    text="{i18n>reorderThreshold}"
+                    required="true"
+                    class="sapUiSmallMarginTop"/>
+
+                <Input
+                    id="thresholdInput"
+                    value="{view>/product/reorderThreshold}"
+                    type="Number"
+                    placeholder="{i18n>enterReorderThreshold}"
+                    valueState="{view>/thresholdState}"
+                    valueStateText="{view>/thresholdStateText}"/>
+
+            </VBox>
+
+        </content>
+
+        <beginButton>
+
+            <Button
+                text="{i18n>save}"
+                type="Emphasized"
+                press=".onSaveProduct"/>
+
+        </beginButton>
+
+        <endButton>
+
+            <Button
+                text="{i18n>cancel}"
+                press=".onCancelProduct"/>
+
+        </endButton>
+
+    </Dialog>
+
+</core:FragmentDefinition>

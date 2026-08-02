@@ -1,0 +1,86 @@
+<mvc:View
+    controllerName="inventoryportal.controller.Detail"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page
+        title="{i18n>productDetails}"
+        showNavButton="true"
+        navButtonPress=".onNavBack">
+
+        <headerContent>
+
+            <Button
+                icon="sap-icon://edit"
+                text="{i18n>edit}"
+                press=".onEdit"/>
+
+            <Button
+                icon="sap-icon://delete"
+                text="{i18n>delete}"
+                type="Reject"
+                press=".onDelete"/>
+
+        </headerContent>
+
+        <content>
+
+            <ObjectHeader
+                title="{products>name}"
+                number="{
+                    parts: [
+                        'products>price',
+                        'products>currency'
+                    ],
+                    formatter: '.formatter.formatCurrency'
+                }">
+
+                <firstStatus>
+
+                    <ObjectStatus
+
+                        text="{
+                            parts: [
+                                'products>stock',
+                                'products>reorderThreshold'
+                            ],
+                            formatter: '.formatter.getStockStatus'
+                        }"
+
+                        state="{
+                            parts: [
+                                'products>stock',
+                                'products>reorderThreshold'
+                            ],
+                            formatter: '.formatter.getStatusState'
+                        }"/>
+
+                </firstStatus>
+
+            </ObjectHeader>
+
+
+            <ObjectListItem
+                title="{i18n>category}"
+                intro="{products>category}"/>
+
+
+            <ObjectListItem
+                title="{i18n>stock}"
+                intro="{products>stock}"/>
+
+
+            <ObjectListItem
+                title="{i18n>reorderThreshold}"
+                intro="{products>reorderThreshold}"/>
+
+
+            <ObjectListItem
+                title="{i18n>currency}"
+                intro="{products>currency}"/>
+
+        </content>
+
+    </Page>
+
+</mvc:View>
