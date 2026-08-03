@@ -80,44 +80,6 @@ index.html#/list
 
 ---
 
-# 3. Project Structure
-
-inventory-portal/
-│
-├── webapp/
-│   ├── controller/
-│   │   ├── App.controller.js
-│   │   ├── BaseController.js
-│   │   ├── List.controller.js
-│   │   ├── Detail.controller.js
-│   │   └── NotFound.controller.js
-│   │
-│   ├── view/
-│   │   ├── App.view.xml
-│   │   ├── List.view.xml
-│   │   ├── Detail.view.xml
-│   │   └── NotFound.view.xml
-│   │
-│   ├── fragment/
-│   │   ├── AddEditProduct.fragment.xml
-│   │   └── ViewSettings.fragment.xml
-│   │
-│   ├── model/
-│   │   ├── formatter.js
-│   │   └── products.json
-│   │
-│   ├── i18n/
-│   │   └── i18n.properties
-│   │
-│   ├── Component.js
-│   ├── manifest.json
-│   └── index.html
-│
-├── package.json
-├── ui5.yaml
-├── .gitignore
-└── README.md
-
 ### Key Components
 
 | File / Folder                | Purpose                                       |
