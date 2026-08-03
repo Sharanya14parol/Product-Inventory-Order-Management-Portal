@@ -108,7 +108,9 @@ inventory-portal/
 │   │   └── products.json
 │   │
 │   ├── i18n/
-│   │   └── i18n.properties
+│   │   ├── i18n.properties
+│   │   └── i18n_en.properties
+│   │   └── i18n_de.properties
 │   │
 │   ├── Component.js
 │   ├── manifest.json
