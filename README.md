@@ -120,40 +120,7 @@ inventory-portal/
 ├── ui5.yaml
 ├── .gitignore
 └── README.md
-```
-
-### Directory and File Description
-
-| Directory / File              | Description                                                                            |
-| ----------------------------- | -------------------------------------------------------------------------------------- |
-| `webapp/`                     | Main SAPUI5 application source directory                                               |
-| `controller/`                 | Contains controllers responsible for application and user-interaction logic            |
-| `App.controller.js`           | Handles application-level functionality such as global settings and theme switching    |
-| `BaseController.js`           | Provides reusable controller functionality shared across controllers                   |
-| `List.controller.js`          | Handles product listing, search, filtering, sorting, grouping, and Add/Edit operations |
-| `Detail.controller.js`        | Handles the product detail page and selected product data                              |
-| `NotFound.controller.js`      | Handles navigation to the Not Found page                                               |
-| `view/`                       | Contains XML views that define the application's UI                                    |
-| `App.view.xml`                | Defines the application-level layout and navigation shell                              |
-| `List.view.xml`               | Defines the product list interface                                                     |
-| `Detail.view.xml`             | Defines the product detail interface                                                   |
-| `NotFound.view.xml`           | Defines the page displayed for invalid routes                                          |
-| `fragment/`                   | Contains reusable XML fragments                                                        |
-| `AddEditProduct.fragment.xml` | Reusable dialog used for both adding and editing products                              |
-| `ViewSettings.fragment.xml`   | Provides sorting, filtering, and grouping options                                      |
-| `model/`                      | Contains application data and reusable formatting logic                                |
-| `products.json`               | Contains the application's independently authored product dataset                      |
-| `formatter.js`                | Contains reusable presentation and formatting functions                                |
-| `i18n/`                       | Contains internationalization resources                                                |
-| `i18n.properties`             | Stores user-facing application texts and messages                                      |
-| `Component.js`                | Initializes the SAPUI5 application component                                           |
-| `manifest.json`               | Defines application metadata, models, routing, and configuration                       |
-| `index.html`                  | Entry point used to load the SAPUI5 application                                        |
-| `package.json`                | Defines project dependencies, scripts, and npm configuration                           |
-| `ui5.yaml`                    | Contains UI5 Tooling configuration                                                     |
-| `.gitignore`                  | Specifies files and directories that should not be committed to Git                    |
-| `README.md`                   | Project documentation                                                                  |
-
+```                                                                 |
 
 ### Key Components
 
