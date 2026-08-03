@@ -8,6 +8,7 @@
         busy="{view>/busy}"
         busyIndicatorDelay="0"
     >
+
         <headerContent>
             <SearchField
                 width="20rem"
@@ -25,8 +26,10 @@
                 updateFinished=".onListUpdateFinished"
                 noDataText="{i18n>noProducts}"
             >
+
                 <headerToolbar>
                     <OverflowToolbar>
+
                         <Title
                             text="{= ${i18n>productsLabel} + ' (' + ${view>/visibleCount} + ')' }"
                         />
@@ -56,45 +59,128 @@
                             text="{i18n>group}"
                             press=".onOpenGroup"
                         />
+
                     </OverflowToolbar>
                 </headerToolbar>
 
                 <items>
-                    <ObjectListItem
-                        title="{products>name}"
-                        number="{products>price}"
-                        numberUnit="{products>currency}"
+
+                    <CustomListItem
                         type="Navigation"
                         press=".onItemPress"
                     >
-                        <attributes>
-                            <ObjectAttribute
-                                text="{= 'Category: ' + ${products>category} }"
-                            />
-                        </attributes>
 
-                        <firstStatus>
-                            <ObjectStatus
-                                text="{products>stock}"
-                                state="{
-            parts: [
-                'products>stock',
-                'products>reorderThreshold'
-            ],
-            formatter: '.formatter.getStockState'
-        }"
-                                icon="{
-            parts: [
-                'products>stock',
-                'products>reorderThreshold'
-            ],
-            formatter: '.formatter.getStockIcon'
-        }"
+                        <HBox
+                            width="100%"
+                            height="7rem"
+                            alignItems="Center"
+                            class="sapUiSmallMarginBegin sapUiSmallMarginEnd"
+                        >
+
+                            <!-- PRODUCT IMAGE -->
+                            <Image
+                                src="{products>imageUrl}"
+                                width="8rem"
+                                height="6rem"
+                                densityAware="false"
+                                decorative="false"
+                                alt="{products>name}"
+                                class="sapUiSmallMarginEnd"
                             />
-                        </firstStatus>
-                    </ObjectListItem>
+
+                            <!-- PRODUCT INFORMATION -->
+                            <VBox
+                                width="100%"
+                                justifyContent="Center"
+                            >
+
+                                <Title
+                                    text="{products>name}"
+                                    level="H4"
+                                />
+
+                                <Text
+                                    text="{products>description}"
+                                    wrapping="true"
+                                    maxLines="2"
+                                    class="sapUiTinyMarginTop"
+                                />
+
+                                <HBox
+                                    alignItems="Center"
+                                    class="sapUiTinyMarginTop"
+                                >
+
+                                    <Text
+                                        text="{= 'Category: ' + ${products>category} }"
+                                        class="sapUiSmallMarginEnd"
+                                    />
+
+                                    <Text
+                                        text="{= 'SKU: ' + ${products>sku} }"
+                                    />
+
+                                </HBox>
+
+                            </VBox>
+
+                            <!-- PRICE -->
+                            <VBox
+                                width="8rem"
+                                alignItems="End"
+                                justifyContent="Center"
+                                class="sapUiSmallMarginBegin sapUiSmallMarginEnd"
+                            >
+
+                                <ObjectNumber
+                                    number="{products>price}"
+                                    unit="{products>currency}"
+                                    emphasized="false"
+                                />
+
+                            </VBox>
+
+                            <!-- STOCK -->
+                            <VBox
+                                width="7rem"
+                                alignItems="Center"
+                                justifyContent="Center"
+                                class="sapUiSmallMarginEnd"
+                            >
+
+                                <Text
+                                    text="Stock"
+                                />
+
+                                <ObjectStatus
+                                    text="{products>stock}"
+                                    state="{
+                                        parts: [
+                                            'products>stock',
+                                            'products>reorderThreshold'
+                                        ],
+                                        formatter: '.formatter.getStockState'
+                                    }"
+                                    icon="{
+                                        parts: [
+                                            'products>stock',
+                                            'products>reorderThreshold'
+                                        ],
+                                        formatter: '.formatter.getStockIcon'
+                                    }"
+                                />
+
+                            </VBox>
+
+                        </HBox>
+
+                    </CustomListItem>
+
                 </items>
+
             </List>
         </content>
+
     </Page>
 </mvc:View>
+
