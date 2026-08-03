@@ -310,7 +310,11 @@ sap.ui.define([
             }
 
             var iCurrentStock = Number(oContext.getProperty("stock")) || 0;
-            var iNewStock = iCurrentStock + REORDER_BATCH;
+            var iReorderThreshold = Number(
+                oContext.getProperty("reorderThreshold")
+            ) || 0;
+
+            var iNewStock = iCurrentStock + iReorderThreshold;
 
             oContext.getModel().setProperty(
                 oContext.getPath() + "/stock",
@@ -320,7 +324,7 @@ sap.ui.define([
             MessageToast.show(
                 this.getResourceBundle().getText(
                     "reorderSuccess",
-                    [REORDER_BATCH, iNewStock]
+                    [iReorderThreshold, iNewStock]
                 )
             );
         },
