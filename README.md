@@ -137,7 +137,7 @@ inventory-portal/
 | `index.html`                 | Application entry point                       |
 | `package.json`               | Dependencies and npm scripts                  |
 | `ui5.yaml`                   | UI5 Tooling configuration                     |
-| `.gitignore`                 | Excludes generated, unnecessary files          |
+| `.gitignore`                 | Excludes generated, unnecessary files         |
 
 Generated files such as `dist/` and installed dependencies such as `node_modules/` are excluded from source control.
 
