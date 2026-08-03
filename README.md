@@ -81,6 +81,7 @@ index.html#/list
 ---
 ## Project Structure
 
+```text
 inventory-portal/
 │
 ├── webapp/
@@ -117,7 +118,7 @@ inventory-portal/
 ├── ui5.yaml
 ├── .gitignore
 └── README.md
-
+```
 
 ### Directory and File Description
 
