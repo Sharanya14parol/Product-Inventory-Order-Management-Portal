@@ -4,7 +4,7 @@ A SAPUI5-based Inventory Portal for managing and monitoring product inventory. T
 
 ---
 
-## 1. Technology Stack
+## Technology Stack
 
 * SAPUI5
 * JavaScript
@@ -21,7 +21,7 @@ A SAPUI5-based Inventory Portal for managing and monitoring product inventory. T
 
 ---
 
-## 2. Running the Application in SAP Business Application Studio
+## Running the Application in SAP Business Application Studio
 
 ### Prerequisites
 
@@ -143,7 +143,7 @@ Generated files such as `dist/` and installed dependencies such as `node_modules
 
 ---
 
-# 4. Implemented Features
+# Implemented Features
 
 ## Product Management
 
@@ -443,7 +443,7 @@ The formatter handles display-related transformations such as stock status and s
 
 ---
 
-# 8. Build
+# Build
 
 To create a production build, run:
 
@@ -457,7 +457,7 @@ The generated build output should normally remain outside source control unless 
 
 ---
 
-# 9. Data and Persistence
+# Data and Persistence
 
 Product data is stored locally in:
 
@@ -468,9 +468,3 @@ The application uses a client-side JSON model.
 Add and Edit operations modify the model during the current application session. These changes are not persisted back to `products.json` and therefore will not remain after the application is restarted.
 
 ---
-
-# 10. Project Objective
-
-The objective of this project is to demonstrate the development of a functional SAPUI5 Inventory Portal using standard UI5 application architecture and development practices.
-
-The application brings together MVC architecture, JSON data binding, routing, reusable fragments, client-side validation, filtering, sorting, grouping, formatter logic, internationalization, and dynamic model updates into a single inventory management application.
