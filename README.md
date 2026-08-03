@@ -120,7 +120,7 @@ inventory-portal/
 ├── ui5.yaml
 ├── .gitignore
 └── README.md
-```                                                                 |
+```
 
 ### Key Components
 
